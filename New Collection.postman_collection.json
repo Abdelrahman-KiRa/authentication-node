@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "14745289-6eee-4a31-aa86-15ab0ff7d595",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42998361"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/auth/user/67d9e45e05f8b0a9c364fa2f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"username\":\"neooy\",\r\n  \"email\": \"neooy@example.com\",\r\n  \"password\": \"999456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/user/67d9e45e05f8b0a9c364fa2f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"user",
+						"67d9e45e05f8b0a9c364fa2f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
