@@ -35,7 +35,8 @@ router.post('/login', async (req, res) => {
     // البحث عن المستخدم
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: 'Invalid email or password' });
+      return res.status(400).json({ message:
+        'Invalid email or password' });
     }
 
     // مقارنة كلمة المرور
