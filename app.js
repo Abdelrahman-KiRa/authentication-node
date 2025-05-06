@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const authRoutes = require('./routes/auth');
+const cors = require('cors');
 
 // تحميل متغيرات البيئة
 dotenv.config();
@@ -13,9 +13,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 // إعداد Express
 const app = express();
-app.use(express.json());
+app.use(express.json()); // لتحليل JSON في الطلبات
+app.use(cors()); // للسماح بطلبات CORS من التطبيق الجوال
 
 // تحميل ملفات التوجيه (Routes)
+const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 // تشغيل الخادم

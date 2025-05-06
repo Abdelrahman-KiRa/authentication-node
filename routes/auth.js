@@ -35,8 +35,7 @@ router.post('/login', async (req, res) => {
     // البحث عن المستخدم
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message:
-        'Invalid email or password' });
+      return res.status(400).json({ message: 'Invalid email or password' });
     }
 
     // مقارنة كلمة المرور
@@ -47,28 +46,10 @@ router.post('/login', async (req, res) => {
 
     // إنشاء JWT
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
     res.status(200).json({ token });
   } catch (err) {
     res.status(500).json({ message: 'Error logging in', error: err.message });
-  }
-});
-
-// استرجاع معلومات مستخدم باستخدام الـ ID
-router.get('/user/:id', async (req, res) => {
-  try {
-    const userId = req.params.id;
-
-    // البحث عن المستخدم باستخدام الـ ID
-    const user = await User.findById(userId).select('-password'); // استبعاد كلمة المرور من النتيجة
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    // إرسال معلومات المستخدم
-    res.status(200).json(user);
-  } catch (err) {
-    res.status(500).json({ message: 'Error fetching user', error: err.message });
   }
 });
 
