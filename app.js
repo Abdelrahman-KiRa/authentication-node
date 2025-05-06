@@ -21,7 +21,11 @@ const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 // تشغيل الخادم
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
+const PORT = process.env.PORT || 3000; // Vercel سيحدد PORT تلقائيًا
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
